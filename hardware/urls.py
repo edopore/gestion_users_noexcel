@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('',views.getHardware),
     path('create/',views.createHardware),
-    path('update/',views.updateHardware),
-    path('delete/',views.deleteHardware)
+    path('update/<id_hw>',views.updateHardware, name='update'),
+    path('delete/<id_hw>',views.deleteHardware, name='delete')
 ]

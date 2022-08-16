@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+
+    <h1>Clients</h1>
+    <div class="container">
+        {% if client %}
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Vendor Name</th>
+                <th>Model Name</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                    {% for item in client %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.fullName}}</td>
+                    <td>{{item.documentId}}</td>
+                    <td><a class="btn btm-primary">Edit</a>
+                    <button type="submit">Delete</button></td>
+                </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h1>There's no clients available, please add one</h1>
+        {% endif %}
+        <button>Add client</button>
+    </div>  
+
+    {% include 'footer.html' %}

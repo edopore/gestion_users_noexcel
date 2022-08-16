@@ -1,0 +1,13 @@
+{% include 'base.html' %}
+{% block title %}Create Hardware{% endblock %}
+
+<form class="container card mt-3" method="post">
+    {% csrf_token %}
+    <div class="card-header">
+        <h1>Create Hardware Model</h1>
+    </div>
+    <div class="cardbody mt-2">
+        {{form.as_p}}
+    </div>
+    <input class="btn btn-danger mb-2" type="submit" value="submit">
+</form>

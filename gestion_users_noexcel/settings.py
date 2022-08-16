@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'client',
     'hardware',
     'service',
-    'login',
     'dashboard'
 ]
 
@@ -82,7 +81,7 @@ WSGI_APPLICATION = 'gestion_users_noexcel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'clientes.sqlite3',
     }
 }
 
@@ -111,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
