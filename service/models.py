@@ -11,12 +11,14 @@ class Service(models.Model):
     servicePhone2 = models.CharField(max_length=10)
     serviceEmail = models.EmailField(default="nomail@mail.com")
     serviceAddress = models.CharField(max_length=50)
-    serialNumberHardwareService = models.CharField(max_length=20, default="XXXXXXXXXXXXXXXXXXXX")
     typeOfService = models.CharField(max_length=20)
     subscriptionPlan = models.CharField(max_length=10)
+    serialNumberHardwareService = models.CharField(max_length=20, default="XXXXXXXXXXXXXXXXXXXX")
+    ipAddress = models.CharField(max_length=15,default='')
+    macAddress = models.CharField(max_length=12,default='')
     subscriptionDate = models.DateField()
     subscriptionDateInstalation = models.DateField()
     unsubscribeDateService = models.DateField()
 
     def __str__(self):
-        return self.serviceClient
+        return self.serviceClient+': '+self.ipAddress

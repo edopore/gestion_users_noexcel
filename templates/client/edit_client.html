@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Update Client data</h1>
+<form class="container card mt-3" method="post">
+    {% csrf_token %}
+    <div class="card-header">
+        <h1>Update Client: {{data.fullName}}</h1>
+    </div>
+    <div class="card-body">
+        <div class="container mb-2"> 
+            <label for="client-fullName">Hardware Vendor:</label>
+            <input type="text" value="{{data.fullName}}" name="client-fullName">
+        </div>
+        <div class="container mb-2">
+            <label for="document-id">Hardware Model:</label>
+            <input type="text" value="{{data.documentId}}" name="document-id" disabled="True">
+        </div>
+    </div>
+    <div class="container mb-2">
+        <a href="{% url 'view-clients' %}" class="btn btn-danger">Cancel</a>
+        <input class="btn btn-primary" type="submit" value="submit">    
+    </div>
+</form>
+{% endblock %}

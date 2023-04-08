@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%}Client List{% endblock %}
+{% block content %}
+    <h1>Clients</h1>
+    <div class="container">
+        {% if client %}
+        <table class="table">
+            <thead>
+                <th>Client Name</th>
+                <th>ID Client</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                    {% for item in client %}
+                <tr>
+                    <td>{{item.fullName}}</td>
+                    <td>{{item.documentId}}</td>
+                    <td>
+                        <a href="{% url 'update-client' item.documentId %}" class="btn btm-primary">Update</a>
+                        <a href="{% url 'delete-client' item.documentId %}" class="btn btm-danger">Delete</a>
+                    </td>
+                </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h1>There's no clients available, please add one</h1>
+        {% endif %}
+        <a class="btn btn-primary bg-dark align-left" href="/client/create">Add Client</a>
+
+    </div>  
+{% endblock %}
