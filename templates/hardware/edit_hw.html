@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}Update Hardware{% endblock %}
-<form method="post">
+{% block content %}
+<form class="container card mt-3" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="submit">
+    <div class="card-header">
+        <h1>Update Hardware: {{data.hardwareModel}}</h1>
+    </div>
+    <div class="card-body">
+        <div class="container mb-2"> 
+            <label for="hardware-vendor">Hardware Vendor:</label>
+            <input type="text" value="{{data.hardwareVendor}}" name="hardware-vendor">
+        </div>
+        <div class="container mb-2">
+            <label for="hardware-model">Hardware Model:</label>
+            <input type="text" value="{{data.hardwareModel}}" name="hardware-model">
+        </div>
+    </div>
+    <div class="container mb-2">
+        <a href="{% url 'view-hw' %}" class="btn btn-danger">Cancel</a>
+        <input class="btn btn-primary" type="submit" value="submit">    
+    </div>
 </form>
+{% endblock %}

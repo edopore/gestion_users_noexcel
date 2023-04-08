@@ -3,8 +3,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('',views.getClient),
-    path('create/',views.createClient),
-    path('update/',views.updateClient),
-    path('delete/',views.deleteClient)
+    path('',views.getClient,name='view-clients'),
+    path('create/',views.createClient,name='create-client'),
+    path('update/<id_client>',views.updateClient,name='update-client'),
+    path('delete/<id_client>',views.deleteClient,name='delete-client')
 ]

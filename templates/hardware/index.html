@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Get Hardware List{% endblock %}
+{% block title %}Hardware List{% endblock %}
 {% block content %}
     <h1>Hardware</h1>
     <div class="container">
@@ -17,8 +17,10 @@
                     <td>{{item.id}}</td>
                     <td>{{item.hardwareVendor}}</td>
                     <td>{{item.hardwareModel}}</td>
-                    <td><a href="{% url 'update' item.id %}" class="btn btn-primary">Edit</a>
-                        <a href="{% url 'delete' item.id %}" class="btn btn-alert">Delete</a></td>
+                    <td>
+                        <a href="{% url 'update-hw' item.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete-hw' item.id %}" class="btn btn-alert">Delete</a>
+                    </td>
                 </tr>
                     
                     {% endfor %}

@@ -80,8 +80,15 @@ WSGI_APPLICATION = 'gestion_users_noexcel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'clientes.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_database',
+        'USER': config('USER_DB'),
+        'PASSWORD':config('PASSWORD_DB'),
+        'HOST':config('HOST_DB'),
+        'PORT':config('PORT_DB'),
+        'OPTIONS':{
+            'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 

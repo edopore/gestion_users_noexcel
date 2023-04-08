@@ -1,23 +1,24 @@
-{% include 'header.html' %}
-
+{% extends 'base.html' %}
+{% block title%}Client List{% endblock %}
+{% block content %}
     <h1>Clients</h1>
     <div class="container">
         {% if client %}
         <table class="table">
             <thead>
-                <th>Id</th>
-                <th>Vendor Name</th>
-                <th>Model Name</th>
+                <th>Client Name</th>
+                <th>ID Client</th>
                 <th>Action</th>
             </thead>
             <tbody>
                     {% for item in client %}
                 <tr>
-                    <td>{{item.id}}</td>
                     <td>{{item.fullName}}</td>
                     <td>{{item.documentId}}</td>
-                    <td><a class="btn btm-primary">Edit</a>
-                    <button type="submit">Delete</button></td>
+                    <td>
+                        <a href="{% url 'update-client' item.documentId %}" class="btn btm-primary">Update</a>
+                        <a href="{% url 'delete-client' item.documentId %}" class="btn btm-danger">Delete</a>
+                    </td>
                 </tr>
                     {% endfor %}
             </tbody>
@@ -25,7 +26,7 @@
         {% else %}
         <h1>There's no clients available, please add one</h1>
         {% endif %}
-        <button>Add client</button>
-    </div>  
+        <a class="btn btn-primary bg-dark align-left" href="/client/create">Add Client</a>
 
-    {% include 'footer.html' %}
+    </div>  
+{% endblock %}

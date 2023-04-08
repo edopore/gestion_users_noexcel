@@ -1,6 +1,8 @@
+from importlib.metadata import files
 from django import forms
+from .models import Hardware
 
-
-class HardwareForm(forms.Form):
-    vendorName = forms.CharField(label='Vendor Name',max_length=50)
-    hardwareName = forms.CharField(label='Hardware Name',max_length=50)
+class HardwareForm(forms.ModelForm):
+    class Meta:
+        model = Hardware
+        fields = '__all__'
